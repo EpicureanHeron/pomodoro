@@ -1,20 +1,32 @@
 // TO DO
 
-//1. display 25 minutes on the screen
-//2. interval by seconds the 25 minutes
+//1. display 25 minutes on the screen -- DONE
+//2. interval by seconds the 25 minutes -- DONE
 //3. stop button should work
 //4. Perhaps include an API to encourage qutoes every 5 minutes
 //5. CSS 
 
 
-var timerValue = 0
-// var moment = require('moment'); // require
+var currentTime;
+var twentyFiveMinFromNow;
+var displayTime;
+var difference;
+var interval;
+var timerStarted = false;
+var timerPaused = false;
 
 $("#start").click(function () {
 	// alert("Handler for .click() called.");
 	console.log('click')
-	createTime()
-	startTimer()
+
+	if(timerStarted == false){
+		createTime()
+		timerStarted = true
+
+		startTimer()
+
+	}
+
 });
 
 
@@ -24,8 +36,16 @@ $("#stop").click(function () {
 
 
 function createTime() {
-	timerValue = moment().minute(25);
-	console.log(timerValue)
+	currentTime = moment()
+	twentyFiveMinFromNow = moment().add(25, 'm')
+
+	console.log(currentTime)
+	console.log(twentyFiveMinFromNow)
+}
+
+function stopTimer(){
+	clearInterval(interval)
+
 }
 
 function startTimer() {
@@ -36,8 +56,17 @@ function startTimer() {
 function count() {
 	//counts down and updates the screen
 	//increases the time 
-	timerValue = timerValue - 1;
+	twentyFiveMinFromNow = twentyFiveMinFromNow - 1000;
+
+	difference = twentyFiveMinFromNow - currentTime
+
+	if(difference == 0){
+		alert('CONGRATS! Good job')
+	}
+
+	displayTime = moment(difference).format("mm:ss")
+	
 	//updates the time left
-	$(".timer").html("Time Left: " + timerValue);
+	$(".timer").html("Time Left: " + displayTime);
 
 }
