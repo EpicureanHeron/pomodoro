@@ -29,3 +29,24 @@ body {
     margin-left: auto;
   margin-right: auto;
 }
+
+.relax {
+    animation-name: relaxTransition;
+    animation-duration: 4s;
+  }
+  
+  @keyframes relaxTransition {
+    from {background-color: #007ACC;}
+    to {background-color: #DD5713;}
+  }
+
+
+  .focus {
+    animation-name: focusTransition;
+    animation-duration: 4s;
+  }
+  
+  @keyframes focusTransition {
+    from {background-color: #DD5713;}
+    to {background-color: #007ACC;}
+  }
