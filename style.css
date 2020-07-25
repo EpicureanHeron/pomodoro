@@ -1,5 +1,31 @@
 body {
     background-color:#007ACC;
     color: white;
+    font-family: 'Epilogue', sans-serif;
+    text-align: center;
+}
 
+/* .custom{
+    margin: auto;
+    
+} */
+
+#title{
+    font-size: 7em;
+   
+  
+}
+.top{
+    margin-bottom: 150px;
+}
+
+.timer{
+    font-size: 5em;
+   
+   
+}
+
+.btn{
+    margin-left: auto;
+  margin-right: auto;
 }

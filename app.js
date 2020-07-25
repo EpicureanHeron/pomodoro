@@ -16,6 +16,12 @@ var timerStarted = false;
 var timerPaused = false;
 var timerLength = 25
 
+var phrases = ['overcome procrastination',
+ 'engage your acetylcholine neurons',
+ "aren't tomatoes red?",
+'chunking, big picture, and context',
+"don't look here, focus"]
+
 $("#start").click(function () {
 	// alert("Handler for .click() called.");
 	console.log('click')
@@ -23,7 +29,8 @@ $("#start").click(function () {
 	if(timerStarted == false){
 		createTime()
 		timerStarted = true
-
+		var phrase = phraseSelector()
+		$('.encouragement').html(phrase)
 		startTimer()
 
 	}
@@ -57,6 +64,14 @@ function stopTimer(){
 	timerPaused = true;
 }
 
+function phraseSelector(){
+
+	var selection = Math.floor((Math.random() * phrases.length));
+
+	return phrases[selection]
+
+}
+
 function startTimer() {
 	//probably should set this to a variable so that I can refer back to it and reset it ? 
 	interval = setInterval(count, 1000);
@@ -71,13 +86,20 @@ function count() {
 	displayTime = moment(difference).format("mm:ss")
 	
 	//updates the time left
-	$(".timer").html("Time Left: " + displayTime);
+	$("#counter").html(displayTime);
+
+
+	if(difference % 300000 == 0){
+		var phrase = phraseSelector()
+		$('.encouragement').html(phrase)
+		console.log('TRIGGERED')
+	}
 
 	if(difference == 0){
 		alert('CONGRATS! Good job');
 		stopTimer();
 		timerStarted = false;
-		$(".timer").html("Time Left: " + displayTime);
+		$("#counter").html(displayTime);
 	}
 
 }
