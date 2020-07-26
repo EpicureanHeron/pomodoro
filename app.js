@@ -27,11 +27,15 @@ var phrases = ['overcome procrastination',
  "aren't tomatoes red?",
 'chunking, big picture, and context',
 "don't look here, focus",
-"make this fullscreen with F11"]
+"make this fullscreen with F11",
+"kudos to Francesco Cirillo",
+'no interuptions']
 
 var relaxPhrases = ['a diffuse mind is a wonderful thing',
  'release your octopus', 
- 'Salvador Dali, Thomas Edison...']
+ 'Salvador Dali, Thomas Edison...',
+'remember to treat yourself',
+'you deserve a reward']
 
 $("#start").click(function () {
 	// alert("Handler for .click() called.");
