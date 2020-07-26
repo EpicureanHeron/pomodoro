@@ -9,6 +9,13 @@
 //space bar control
 // mobile ???
 
+//post grading
+
+// need to be clear on the THREE MAIN TOPICS
+// * Procrastination
+// * Diffuse and Focused Learning
+// * Chunking
+
 
 
 var currentTime;

@@ -24,6 +24,13 @@ body {
    
    
 }
+.modal-body {
+  color: black;
+  text-align: left;
+}
+.modal-title{
+  color: black;
+}
 
 .btn{
     margin-left: auto;
