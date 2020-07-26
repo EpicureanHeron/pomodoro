@@ -23,47 +23,56 @@ var relaxTimerLength = 5;
 var state = 'focus'; //either focus or relax
 
 var phrases = ['overcome procrastination',
- 'engage your acetylcholine neurons',
- "aren't tomatoes red?",
-'chunking, big picture, and context',
-"don't look here, focus",
-"make this fullscreen with F11",
-"kudos to Francesco Cirillo",
-'no interuptions']
+	'engage your acetylcholine neurons',
+	"aren't tomatoes red?",
+	'chunking, big picture, and context',
+	"don't look here, focus",
+	"make this fullscreen with F11",
+	"kudos to Francesco Cirillo",
+	'no interuptions']
 
 var relaxPhrases = ['a diffuse mind is a wonderful thing',
- 'release your octopus', 
- 'Salvador Dali, Thomas Edison...',
-'remember to treat yourself',
-'you deserve a reward']
+	'release your octopus',
+	'Salvador Dali, Thomas Edison...',
+	'remember to treat yourself',
+	'you deserve a reward']
+
+
+$(window).on('load', function () {
+	//console.log('modal loaded?')
+	$('.modal').modal('show');
+});
+
 
 $("#start").click(function () {
 	// alert("Handler for .click() called.");
 	console.log('click')
 
-	if(timerStarted == false && state =='focus'){
+	if (timerStarted == false && state == 'focus') {
 		createTime(focusTimerLength)
-		
-	
+
+
 		var phrase = phraseSelector()
 		$('.encouragement').html(phrase)
 		startTimer()
 
 	}
 
-	if(timerStarted == false && state =='relax'){
+	if (timerStarted == false && state == 'relax') {
 		createTime(relaxTimerLength)
-		
-		
+
+
 		var phrase = phraseSelector()
 		$('.encouragement').html(phrase)
 		startTimer()
 
 	}
 
-	if(timerPaused == true){
+	if (timerPaused == true) {
 		startTimer()
 		timerPaused = false;
+		var phrase = phraseSelector()
+		$('.encouragement').html(phrase)
 	}
 
 });
@@ -78,21 +87,21 @@ function createTime(timerLength) {
 	currentTime = moment()
 	futureTime = moment().add(timerLength, 'm')
 
-	
+
 }
 
-function stopTimer(){
+function stopTimer() {
 	clearInterval(interval)
 	timerPaused = true;
 }
 
-function phraseSelector(){
-	if(state == 'focus'){
+function phraseSelector() {
+	if (state == 'focus') {
 		var selection = Math.floor((Math.random() * phrases.length));
 
 		return phrases[selection]
 	}
-	else if (state == 'relax'){
+	else if (state == 'relax') {
 		var selection = Math.floor((Math.random() * relaxPhrases.length));
 
 		return relaxPhrases[selection]
@@ -114,32 +123,32 @@ function count() {
 
 	difference = futureTime - currentTime
 	displayTime = moment(difference).format("mm:ss")
-	
+
 	//updates the time left
 	$("#counter").html(displayTime);
 
 
-	if(difference % 300000 == 0){
+	if (difference % 300000 == 0) {
 		var phrase = phraseSelector()
 		$('.encouragement').html(phrase)
 		console.log('TRIGGERED')
 	}
 	// when display time shows 00:00
-	if(displayTime == '00:00'){
-		if(state =='focus'){
+	if (displayTime == '00:00') {
+		if (state == 'focus') {
 			clearInterval(interval)
-			$('body').addClass('relax')	
+			$('body').addClass('relax')
 			$('body').removeClass('focus')
 			timerStarted = false;
 			$("#counter").html(displayTime);
-			
+
 			setTimeout(setMood, 3900)
 			state = 'relax'
 			$('.encouragement').html('click start to relax')
 			$("#counter").html('5:00')
 
 		}
-		else if(state == 'relax'){
+		else if (state == 'relax') {
 			clearInterval(interval)
 			$('body').addClass('focus')
 			$('body').removeClass('relax')
@@ -151,15 +160,15 @@ function count() {
 			state = 'focus'
 		}
 		// triggers the animimation 
-	
+
 	}
 }
 
-function setMood(){
-	if (state == 'relax'){
+function setMood() {
+	if (state == 'relax') {
 		$("body").css("background-color", "#DD5713");
 	}
-	else if (state == 'focus'){
+	else if (state == 'focus') {
 		$("body").css("background-color", "#007ACC");
 	}
 
