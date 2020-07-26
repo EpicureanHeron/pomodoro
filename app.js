@@ -18,8 +18,8 @@ var difference;
 var interval;
 var timerStarted = false;
 var timerPaused = false;
-var focusTimerLength = 25;
-var relaxTimerLength = 5;
+var focusTimerLength = 1;
+var relaxTimerLength = 1;
 var state = 'focus'; //either focus or relax
 
 var phrases = ['overcome procrastination',
