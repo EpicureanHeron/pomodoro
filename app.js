@@ -33,16 +33,20 @@ var phrases = ['overcome procrastination',
 	'engage your acetylcholine neurons',
 	"aren't tomatoes red?",
 	'chunking, big picture, and context',
+	"process over product",
+	"deliberate practice makes you stronger",
 	"don't look here, focus",
 	"make this fullscreen with F11",
 	"kudos to Francesco Cirillo",
-	'no interuptions']
+	'no interuptions',
+	'neurodiscomfort only lasts a couple minutes']
 
 var relaxPhrases = ['a diffuse mind is a wonderful thing',
 	'release your octopus',
 	'Salvador Dali, Thomas Edison...',
 	'remember to treat yourself',
-	'you deserve a reward']
+	'you deserve a reward',
+	'build the habit and reward yourself']
 
 
 $(window).on('load', function () {
