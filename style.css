@@ -31,6 +31,10 @@ body {
 .modal-title{
   color: black;
 }
+.modal-content{
+  width: 800px;
+  margin-left: -120px;
+}
 
 .btn{
     margin-left: auto;
