@@ -138,6 +138,9 @@ function count() {
 	//updates the time left
 	$("#counter").html(displayTime);
 
+	$("#counter-title").html(displayTime);
+
+
 
 	if (difference % 300000 == 0) {
 		var phrase = phraseSelector()
