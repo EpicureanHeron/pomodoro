@@ -49,7 +49,7 @@ var relaxPhrases = ['a diffuse mind is a wonderful thing',
 	'build the habit and reward yourself']
 
 
-$(window).on('load', function () {
+$("#info").click( function () {
 	//console.log('modal loaded?')
 	$('.modal').modal('show');
 });
